@@ -4,6 +4,7 @@
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/fredoka";
 @import "@fontsource/pacifico";
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:is(.dark *));
 

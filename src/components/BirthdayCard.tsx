@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
-import { PartyPopperIcon, StarIcon, SparkleIcon } from "@radix-ui/react-icons"
+import { RocketIcon, StarIcon, MagicWandIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button"
 import Confetti from "./Confetti"
 
@@ -21,6 +21,7 @@ export default function BirthdayCard() {
   }
 
   const handleWish = () => {
+    window.location.href = "/deseo"
     setShowWish((v) => !v)
     if (!prefersReduced) {
       const cx = window.innerWidth / 2
@@ -46,7 +47,7 @@ export default function BirthdayCard() {
           padding: "48px 40px 32px",
           boxShadow: "0 10px 30px -12px rgba(91, 74, 106, 0.25)",
         }}
-        initial={prefersReduced ? false : { opacity: 0, y: 24, scale: 0.96 }}
+        initial={prefersReduced ? undefined : { opacity: 0, y: 24, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.9, ease: EASE }}
       >
@@ -54,7 +55,7 @@ export default function BirthdayCard() {
         <motion.p
           className="m-0 mb-3.5 uppercase tracking-[0.22em] text-[0.78rem] font-semibold"
           style={{ color: "var(--color-ink-soft)" }}
-          initial={prefersReduced ? false : { opacity: 0, y: 14 }}
+          initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
         >
@@ -68,7 +69,7 @@ export default function BirthdayCard() {
         >
           <motion.span
             className="text-gradient-pastel block"
-            initial={prefersReduced ? false : { opacity: 0, y: 14 }}
+            initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
           >
@@ -76,7 +77,7 @@ export default function BirthdayCard() {
           </motion.span>
           <motion.span
             className="text-gradient-pastel block"
-            initial={prefersReduced ? false : { opacity: 0, y: 14 }}
+            initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45, ease: EASE }}
           >
@@ -88,7 +89,7 @@ export default function BirthdayCard() {
         <motion.p
           className="mx-auto mb-7 max-w-[42ch] text-[1.05rem] leading-relaxed"
           style={{ color: "var(--color-ink-soft)" }}
-          initial={prefersReduced ? false : { opacity: 0, y: 14 }}
+          initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
         >
@@ -99,7 +100,7 @@ export default function BirthdayCard() {
         {/* Botones */}
         <motion.div
           className="flex gap-3.5 justify-center flex-wrap"
-          initial={prefersReduced ? false : { opacity: 0, y: 14 }}
+          initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.75, ease: EASE }}
         >
@@ -112,7 +113,7 @@ export default function BirthdayCard() {
               boxShadow: "0 18px 40px -18px rgba(247, 168, 196, 0.65)",
             }}
           >
-            <PartyPopperIcon data-icon="inline-start" />
+            <RocketIcon data-icon="inline-start" />
             Celebrar 🎉
           </Button>
 
@@ -140,9 +141,9 @@ export default function BirthdayCard() {
                 background:
                   "linear-gradient(135deg, var(--color-purple-soft), var(--color-blue-soft))",
               }}
-              initial={prefersReduced ? false : { opacity: 0, scale: 0.9 }}
+              initial={prefersReduced ? undefined : { opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={prefersReduced ? false : { opacity: 0, scale: 0.9 }}
+              exit={prefersReduced ? undefined : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
               <p
@@ -171,7 +172,7 @@ export default function BirthdayCard() {
                       ease: "easeInOut",
                     }}
                   >
-                    <SparkleIcon
+                    <MagicWandIcon
                       className="inline-block"
                       style={{ color: "var(--color-purple)" }}
                     />

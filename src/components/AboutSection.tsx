@@ -75,7 +75,7 @@ export default function AboutSection() {
         background:
           "linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.35), transparent)",
       }}
-      initial={prefersReduced ? false : { opacity: 0, y: 40 }}
+      initial={prefersReduced ? undefined : { opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.9, ease: EASE }}
@@ -129,7 +129,7 @@ function ParallaxImage({
           "linear-gradient(135deg, var(--color-pink-soft), var(--color-blue-soft))",
         boxShadow: "0 20px 50px -18px rgba(91, 74, 106, 0.35)",
       }}
-      initial={prefersReduced ? false : { opacity: 0, scale: 0.96 }}
+      initial={prefersReduced ? undefined : { opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.1 * (index + 1), ease: EASE }}
@@ -161,7 +161,7 @@ function CenterContent({
     <motion.div
       className="relative z-2 max-w-[min(640px,90vw)] text-center px-6"
       style={{ y }}
-      initial={prefersReduced ? false : { opacity: 0, scale: 0.96 }}
+      initial={prefersReduced ? undefined : { opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
