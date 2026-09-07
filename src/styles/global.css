@@ -1,0 +1,259 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/fredoka";
+@import "@fontsource/pacifico";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --font-display: 'Pacifico', cursive;
+    --font-body: 'Fredoka Variable', system-ui, sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+
+    /* Paleta pastel del proyecto original */
+    --color-pink: #f7a8c4;
+    --color-pink-soft: #fcd5e2;
+    --color-blue: #a8d8f0;
+    --color-blue-soft: #d6ecf8;
+    --color-purple: #c9b6f0;
+    --color-purple-soft: #e7def8;
+    --color-cream: #fff7fb;
+    --color-ink: #5b4a6a;
+    --color-ink-soft: #8a7a98;
+
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+
+/* =========================================================
+   Animaciones compartidas del proyecto
+   ========================================================= */
+@keyframes auroraShift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(0, -2%, 0) scale(1.08); }
+}
+@keyframes floatBlob {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50%      { transform: translate3d(20px,-30px,0) scale(1.12); }
+}
+@keyframes riseBalloon {
+  0%   { transform: translateY(0)        rotate(0deg);   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-115vh)   rotate(8deg);   opacity: 0; }
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(0.4); transform-origin: top; }
+  50%      { transform: scaleY(1);   transform-origin: top; }
+}
+
+/* =========================================================
+   Utilidades del tema pastel
+   ========================================================= */
+.text-gradient-pastel {
+  background: linear-gradient(90deg, var(--color-pink), var(--color-purple), var(--color-blue));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+.bg-aurora {
+  background:
+    radial-gradient(40% 40% at 20% 30%, rgba(247, 168, 196, 0.45), transparent 60%),
+    radial-gradient(40% 40% at 80% 20%, rgba(168, 216, 240, 0.45), transparent 60%),
+    radial-gradient(45% 45% at 50% 80%, rgba(201, 182, 240, 0.45), transparent 60%);
+  filter: blur(20px);
+  animation: auroraShift 18s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   About section — posiciones de imágenes
+   ========================================================= */
+.about__img--1 {
+  width: clamp(140px, 16vw, 240px);
+  aspect-ratio: 3/4;
+  top: 4%;
+  left: 6%;
+}
+.about__img--2 {
+  width: clamp(160px, 18vw, 280px);
+  aspect-ratio: 4/5;
+  top: 8%;
+  right: 8%;
+}
+.about__img--3 {
+  width: clamp(200px, 24vw, 360px);
+  aspect-ratio: 5/6;
+  top: 42%;
+  right: 4%;
+}
+.about__img--4 {
+  width: clamp(150px, 17vw, 260px);
+  aspect-ratio: 3/4;
+  bottom: 8%;
+  left: 10%;
+}
+.about__img--5 {
+  width: clamp(150px, 17vw, 260px);
+  aspect-ratio: 3/4;
+  bottom: 12%;
+  right: 14%;
+}
+.about__img--6 {
+  width: clamp(130px, 14vw, 220px);
+  aspect-ratio: 4/5;
+  top: 38%;
+  left: 4%;
+}
+
+@media (max-width: 900px) {
+  .about__img--1 { top: 2%;  left: 2%; }
+  .about__img--2 { top: 4%;  right: 2%; }
+  .about__img--3 { top: 38%; right: 2%; }
+  .about__img--4 { bottom: 4%; left: 2%; }
+  .about__img--5 { bottom: 6%; right: 4%; }
+  .about__img--6 { top: 34%; left: 2%; }
+}
+
+@media (max-width: 600px) {
+  .about__img--3,
+  .about__img--5 { display: none; }
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
