@@ -196,52 +196,62 @@
    About section — posiciones de imágenes
    ========================================================= */
 .about__img--1 {
-  width: clamp(140px, 16vw, 240px);
+  width: clamp(140px, 16vw, 220px);
   aspect-ratio: 3/4;
-  top: 4%;
-  left: 6%;
+  top: 5%;
+  left: 7%;
 }
 .about__img--2 {
-  width: clamp(160px, 18vw, 280px);
+  width: clamp(150px, 17vw, 240px);
   aspect-ratio: 4/5;
-  top: 8%;
-  right: 8%;
+  top: 7%;
+  right: 7%;
 }
 .about__img--3 {
-  width: clamp(200px, 24vw, 360px);
+  width: clamp(160px, 18vw, 240px);
   aspect-ratio: 5/6;
-  top: 42%;
-  right: 4%;
+  top: 36%;
+  right: 6%;
 }
 .about__img--4 {
-  width: clamp(150px, 17vw, 260px);
+  width: clamp(140px, 16vw, 220px);
   aspect-ratio: 3/4;
-  bottom: 8%;
-  left: 10%;
+  top: 42%;
+  left: 7%;
 }
 .about__img--5 {
-  width: clamp(150px, 17vw, 260px);
+  width: clamp(140px, 16vw, 220px);
   aspect-ratio: 3/4;
-  bottom: 12%;
-  right: 14%;
+  right: 20%;
+  bottom: 9%;
 }
 .about__img--6 {
-  width: clamp(130px, 14vw, 220px);
+  width: clamp(120px, 13vw, 190px);
   aspect-ratio: 4/5;
-  top: 38%;
-  left: 4%;
+  left: 20%;
+  bottom: 6%;
 }
 
 @media (max-width: 900px) {
-  .about__img--1 { top: 2%;  left: 2%; }
-  .about__img--2 { top: 4%;  right: 2%; }
-  .about__img--3 { top: 38%; right: 2%; }
-  .about__img--4 { bottom: 4%; left: 2%; }
-  .about__img--5 { bottom: 6%; right: 4%; }
-  .about__img--6 { top: 34%; left: 2%; }
+  .about__img--1 { left: 2%; }
+  .about__img--2 { right: 2%; }
+  .about__img--3 { right: 1%; }
+  .about__img--4 { left: 2%; }
+  .about__img--5 { right: 8%; }
+  .about__img--6 { left: 8%; }
 }
 
 @media (max-width: 600px) {
+  .about__img--1,
+  .about__img--2,
+  .about__img--4,
+  .about__img--6 {
+    width: 110px;
+  }
+  .about__img--1 { top: 38%; left: 2%; }
+  .about__img--2 { top: 38%; right: 2%; }
+  .about__img--4 { top: 66%; left: 2%; }
+  .about__img--6 { bottom: 4%; left: 24%; }
   .about__img--3,
   .about__img--5 { display: none; }
 }
