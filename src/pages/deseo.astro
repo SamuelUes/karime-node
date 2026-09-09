@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro'
+import AnimatedBackground from '../components/AnimatedBackground.tsx'
+import SmoothScroll from '../components/SmoothScroll.tsx'
+import WishStack, { WishBackLink } from '../components/WishStack.tsx'
+---
+
+<Layout title="Deseos · Feliz Cumpleaños" description="Desliza para descubrir momentos mágicos guardados para ti.">
+  <SmoothScroll client:load>
+    <AnimatedBackground showBalloons={false} client:load />
+
+    <div
+      class="font-body min-h-[100dvh] overflow-x-clip"
+      style="
+        color: var(--color-ink);
+        background: linear-gradient(160deg, var(--color-pink-soft), var(--color-blue-soft) 45%, var(--color-purple-soft));
+        background-attachment: fixed;
+      "
+    >
+      {/* Topbar */}
+      <header
+        class="sticky top-0 z-100 flex items-center justify-between"
+        style="
+          padding: 16px 24px;
+          background: rgba(255, 255, 255, 0.5);
+          backdrop-filter: blur(14px) saturate(140%);
+          -webkit-backdrop-filter: blur(14px) saturate(140%);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        "
+      >
+        <WishBackLink href="/" client:load />
+        <span class="font-display text-[1.2rem]" style="color: var(--color-ink);">
+          Mis Deseos
+        </span>
+      </header>
+
+      {/* Intro */}
+      <section
+        class="min-h-[70dvh] grid place-items-center text-center"
+        style="padding: 40px 24px 20px;"
+      >
+        <div>
+          <h1
+            class="font-display font-normal m-0 mb-3 text-gradient-pastel"
+            style="font-size: clamp(2.4rem, 7vw, 4rem);"
+          >
+            Pide un deseo
+          </h1>
+          <p
+            class="m-0 mb-7 max-w-[40ch] text-[1.05rem]"
+            style="color: var(--color-ink-soft);"
+          >
+            Desliza para descubrir un par de sorpresitas kawaii uwu
+          </p>
+          <div
+            class="inline-flex flex-col items-center gap-2 text-[0.8rem] uppercase tracking-[0.2em]"
+            style="color: var(--color-ink-soft);"
+          >
+            <span>Scroll</span>
+            <span
+              class="block w-[2px] h-10"
+              style="
+                background: linear-gradient(var(--color-purple), transparent);
+                animation: scrollLine 1.8s ease-in-out infinite;
+              "
+            ></span>
+          </div>
+        </div>
+      </section>
+
+      {/* Stack de cards */}
+      <WishStack client:load />
+
+      {/* Footer */}
+      <footer class="grid place-items-center text-center" style="padding: 60px 24px 80px;">
+        <a
+          href="/"
+          class="font-semibold no-underline rounded-full transition-all hover:-translate-y-0.5"
+          style="
+            color: var(--color-ink);
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.6);
+          "
+        >
+          ← Volver al inicio
+        </a>
+      </footer>
+    </div>
+  </SmoothScroll>
+</Layout>
