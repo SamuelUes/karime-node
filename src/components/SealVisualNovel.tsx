@@ -11,47 +11,151 @@ interface Phase {
   dialogue: DialogueLine[]
 }
 
+const SPEAKER_COLORS: Record<string, string> = {
+  KARIME: "#15eee3",
+  "ZAYNE(don't ask)": "#9de5df",
+  NARRADOR: "#f5b4f5",
+  "DEVELOPER": "#490303",
+}
+
 const PHASES: Phase[] = [
   {
-    title: "Fase 1 · La orilla",
-    image: "/resources/seal-normal.png",
-    dialogue: [
-      { speaker: "NARRADOR", text: "[Escribe aquí el primer diálogo de tu historia.]" },
-      { speaker: "FOCA", text: "[Añade aquí la respuesta de la foca.]" },
-    ],
-  },
-  {
-    title: "Fase 2 · Bajo las olas",
-    image: "/resources/seal-normal.png",
-    dialogue: [
-      { speaker: "NARRADOR", text: "[Este es el diálogo independiente de la segunda fase.]" },
-      { speaker: "FOCA", text: "[La foca puede decir algo nuevo aquí.]" },
-    ],
-  },
-  {
-    title: "Fase 3 · Un nuevo día",
+    title: "",
     image: "/resources/foca-fase-3.jpg",
     dialogue: [
-      { speaker: "NARRADOR", text: "[Escribe aquí el cierre de la aventura.]" },
-      { speaker: "FOCA", text: "[Añade el último mensaje de la foca.]" },
+      { speaker: "KARIME", text: "Okay, ya estoy en esta extraña página, ahora qué??" },
+      { speaker: "NARRADOR", text: "Y aquí se encuentra nuestra estimada Karime, en su hábitat natural (internet)" },
+      { speaker: "KARIME", text: "Qué es esto? Un juego de foca? pero dónde está la foca?" },
     ],
   },
   {
-    title: "fsdgsdsdf",
-    image: "/resources/foca-fase-3.jpg",
+    title: "",
+    image: "/resources/cosa-shock.jpg",
     dialogue: [
-      { speaker: "NARRADOR", text: "[Escribe aquí el cierre de la aventura.]" },
-      { speaker: "FOCA", text: "[Añade el último mensaje de la foca.]" },
+      { speaker: "KARIME", text: "y pq soy una bola sin forma??" },
+      { speaker: "NARRADOR", text: "ehhh, el developer no sabe dibujar, conformate" },
+      { speaker: "KARIME", text: "ah ok, tiene sentido, yo soy la q sabe dibujar" },
+      { speaker: "KARIME", text: "pero donde está mi foca?? espero que no sea otra bolita sin forma!!!" },
+      { speaker: "NARRADOR", text: "sobre eso..." },
+      { speaker: "NARRADOR", text: "no había mucho budget, así que..." },
+      { speaker: "KARIME", text: "si... me lo supuse" },
+      { speaker: "NARRADOR", text: "bromita... aquí está tu foquita" },
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/seal-normal.png",
+    dialogue: [
+      { speaker: "ZAYNE(don't ask)", text: "HOLAAAAAA" },
+      { speaker: "KARIME", text: "OMG ES UNA FOQUITA REALLL, pero poq te llamas Zayne???" },
+      { speaker: "NARRADOR", text: "no lees el nombre? dice NO PREGUNTES" },
+      { speaker: "KARIME", text: "a" },
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/seal-greeting.png",
+    dialogue: [
+      { speaker: "ZAYNE(don't ask)", text: "Hola persona bonita obsesionada con las focas y las cosas de mar" },
+      { speaker: "ZAYNE(don't ask)", text: "el tema de mi nombre no importa ahora!!" },
+      { speaker: "NARRADOR", text: "lo que dijo" },
+      
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/seal-smiling.png",
+    dialogue: [
+      { speaker: "ZAYNE(don't ask)", text: "he sido creado el dia de hoy" },
+      { speaker: "NARRADOR", text: "(de hecho tomó dos días hacerte)" },
+      { speaker: "ZAYNE(don't ask)", text: "*Lo ignora*" },
+      { speaker: "ZAYNE(don't ask)", text: "Para traerte un mensaje muy, muy importante..." },
+      { speaker: "KARIME", text: "por fa decime q la blanca me va a regalar una foca real" },
+      
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/seal-laughing.png",
+    dialogue: [
+      { speaker: "ZAYNE(don't ask)", text: "JAJAJA no tontita..." },
+      { speaker: "NARRADOR", text: "aunque si tuviera el dinero para..." },
+      { speaker: "ZAYNE(don't ask)", text: "*clears throat*" },
+      { speaker: "ZAYNE(don't ask)", text: "anyways..." },
+      { speaker: "NARRADOR", text: "pq de la nada habLAS INGLES" },
+      
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/seal-normal.png",
+    dialogue: [
+      { speaker: "ZAYNE(don't ask)", text: "como seguía diciendo..." },
+      { speaker: "ZAYNE(don't ask)", text: "mi creadora me creó y programó..." },
+      
+    ],
+  },
+   {
+    title: "",
+    image: "/resources/seal-bd.png",
+    dialogue: [
+      { speaker: "ZAYNE(don't ask)", text: "PARA DESEARTE UN MUY FELIZ CUMPLEAÑOS" },
+      { speaker: "ZAYNE(don't ask)", text: "Esperamos que este nuevo año te traiga muchas alegrías y oportunidades, y que puedas alcanzar todas tus metas." },
+      { speaker: "ZAYNE(don't ask)", text: "FELIZ CUMPLEAÑOS FRESIKARIIIIII!!!!" },
+      { speaker: "KARIME", text: "OMG ESTOY EMOCIONADA, CONMOVIDA, FASCINADA, SORPRENDIDA, DESESPERADA, CONFUNDIDA, INCREÍBLE, ASOMBRADA, AGRADABLE, ENCANTADORA, FELIZ"},
+      { speaker: "NARRADOR", text: "si ok ya entendimos..." },
+    ],
+  },
+    {
+    title: "",
+    image: "/resources/Tai.png",
+    dialogue: [
+      { speaker: "DEVELOPER", text: "bueno, ya déjense de tanto drama que ya vino la mera GOAT (mentira)"},
+      { speaker: "DEVELOPER", text: "en fin, espero que te haya gustado este pequeño jueguito modesto que te hice" },
+      { speaker: "DEVELOPER", text: "no es igual de increíble que el que me hiciste vos, pero es trabajo honesto"},
+      { speaker: "DEVELOPER", text: "Feliz cumpleaños Karime, te amo mucho" },
+      { speaker: "NARRADOR", text: "cursi...."},
+      
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/Tai-angwy.png",
+    dialogue: [
+      { speaker: "DEVELOPER", text: "cierra el pico"},
+      { speaker: "NARRADOR", text: "pero si vos pusiste este diálogo..."},
+      { speaker: "DEVELOPER", text: "cierto..."},
+    ],
+  },
+  {
+    title: "",
+    image: "/resources/seal-laughing.png",
+    dialogue: [
+      { speaker: "Zayne(don't ask)", text: "como seaaaaaa, no se salgan del tema"},
+      { speaker: "NARRADOR", text: "feliz cumpleaños fresikari, has llegado al final del juego byeeeee"},
     ],
   },
 ]
 
 export default function SealVisualNovel() {
   const gameRef = useRef<HTMLDivElement>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
     let game: { destroy: (removeCanvas: boolean, noReturn?: boolean) => void } | undefined
     let cancelled = false
+    const music = new Audio("/resources/AA-OST-MayaFey.mp3")
+    music.loop = true
+    music.volume = 0.35
+    audioRef.current = music
+
+    const startMusic = () => {
+      void music.play().catch(() => undefined)
+    }
+
+    startMusic()
+    document.addEventListener("pointerdown", startMusic, { once: true })
+    document.addEventListener("keydown", startMusic, { once: true })
 
     void import("phaser").then(({ default: Phaser }) => {
       if (cancelled || !gameRef.current) return
@@ -128,7 +232,7 @@ export default function SealVisualNovel() {
             this.createPlaceholder(width, height)
           }
 
-          this.add.rectangle(width / 2, height * 0.84, width * 0.96, height * 0.28, 0x092b42, 0.94)
+          this.add.rectangle(width / 2, height * 0.84, width * 0.96, height * 0.28, 0x35657a, 0.94)
             .setStrokeStyle(2, 0x8ed9da, 0.7)
           this.phaseText = this.add.text(width * 0.06, height * 0.69, phase.title.toUpperCase(), {
             color: "#9de5df",
@@ -150,7 +254,7 @@ export default function SealVisualNovel() {
           this.continueText?.destroy()
 
           this.speakerText = this.add.text(width * 0.06, height * 0.755, line.speaker, {
-            color: "#ffd98f",
+            color: SPEAKER_COLORS[line.speaker] ?? "#ffd98f",
             fontFamily: "Geist Variable, sans-serif",
             fontSize: `${Math.max(15, width * 0.021)}px`,
             fontStyle: "bold",
@@ -202,6 +306,11 @@ export default function SealVisualNovel() {
 
     return () => {
       cancelled = true
+      document.removeEventListener("pointerdown", startMusic)
+      document.removeEventListener("keydown", startMusic)
+      music.pause()
+      music.currentTime = 0
+      audioRef.current = null
       game?.destroy(true)
     }
   }, [])

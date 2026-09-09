@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+interface BirthdayLink {
+  label: string
+  title: string
+  description: string
+  href: string
+  color: string
+  icon: string
+}
+
+// Agrega, elimina o cambia objetos de esta lista para personalizar tus links.
+const LINKS: BirthdayLink[] = [
+  {
+    label: 'Cake',
+    title: 'Un pastelito para ti',
+    description: 'rico rico',
+    href: 'https://gifft.me/o/bc/p29tbrvbsu1hnw1z6f8ihzyx',
+    color: '#f7b6cf',
+    icon: '🎂',
+  },
+  {
+    label: 'Sorpresa',
+    title: 'Una caja secreta',
+    description: 'Algo especial está esperando dentro',
+    href: 'https://gifft.me/o/b/bblcf04oe8ad1543zpbhzw5u',
+    color: '#b8dff1',
+    icon: '🎁',
+  },
+  {
+    label: 'Cartita',
+    title: 'También es sorpresaaa',
+    description: 'adivina que soy',
+    href: 'https://sendlove.io/love-letter/gift_mttpp5jo_c757a4f8',
+    color: '#d3c1ef',
+    icon: '💌',
+  },
+    {
+    label: 'Video',
+    title: 'Hay ciertas personas que desean darte un mensaje especial',
+    description: 'No los hagas esperar',
+    href: 'https://drive.google.com/file/d/1CSOEGJPZAwIgLnj3QG5m96v-obgydmt6/view?usp=sharing',
+    color: '#d3c1ef',
+    icon: '❤️',
+  },
+]
+
+const isExternal = (href: string) => /^https?:\/\//.test(href)
+---
+
+<Layout title="Regalitos para ti" description="Una colección de links de cumpleaños para ti.">
+  <main class="links-page">
+    <div class="confetti confetti-one" aria-hidden="true"></div>
+    <div class="confetti confetti-two" aria-hidden="true"></div>
+    <div class="confetti confetti-three" aria-hidden="true"></div>
+
+    <nav class="links-nav" aria-label="Navegación principal">
+      <a href="/deseo" class="back-link">← Volver al inicio</a>
+      <span class="nav-mark" aria-hidden="true">✦</span>
+    </nav>
+
+    <header class="links-hero">
+      <p class="eyebrow">una pequeña colección de sorpresas</p>
+      <h1>Regalitos<br /><span>para ti</span></h1>
+      <p class="hero-copy">no es ruleta, podes tenerlos toditoooooos</p>
+      <div class="cake-line" aria-hidden="true"><span>✦</span><i></i><span>🎂</span><i></i><span>✦</span></div>
+    </header>
+
+    <section class="link-list" aria-label="Links de cumpleaños">
+      {LINKS.map((link, index) => (
+        <a
+          class="gift-link"
+          href={link.href}
+          target={isExternal(link.href) ? '_blank' : undefined}
+          rel={isExternal(link.href) ? 'noopener noreferrer' : undefined}
+          style={`--link-color: ${link.color}; --delay: ${index * 90}ms`}
+        >
+          <span class="gift-icon" aria-hidden="true">{link.icon}</span>
+          <span class="gift-copy">
+            <span class="gift-label">{link.label}</span>
+            <strong>{link.title}</strong>
+            <small>{link.description}</small>
+          </span>
+          <span class="gift-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </section>
+
+    <footer class="links-footer">hecho con cariño, confeti y un poquito de magia <span aria-hidden="true">♡</span></footer>
+  </main>
+</Layout>
+
+<style>
+  .links-page {
+    --ink: #5b4a6a;
+    --soft-ink: #8a7a98;
+    position: relative;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding: 28px clamp(20px, 6vw, 90px) 48px;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 8% 18%, rgba(247, 168, 196, .44), transparent 25%),
+      radial-gradient(circle at 94% 74%, rgba(168, 216, 240, .48), transparent 28%),
+      linear-gradient(135deg, #fff7fb 0%, #f4effc 48%, #edf8fc 100%);
+    font-family: 'Fredoka Variable', sans-serif;
+  }
+
+  .links-nav, .links-hero, .link-list, .links-footer {
+    position: relative;
+    z-index: 1;
+    width: min(760px, 100%);
+    margin-inline: auto;
+  }
+
+  .links-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .back-link {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 180ms ease, color 180ms ease;
+  }
+
+  .back-link:hover { color: #bd76a5; transform: translateX(-4px); }
+  .nav-mark { color: #f19bbd; font-size: 1.5rem; }
+
+  .links-hero { padding: clamp(68px, 12vh, 120px) 0 36px; text-align: center; }
+  .eyebrow { margin: 0 0 14px; color: #bc7eaa; font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  h1 { margin: 0; color: var(--ink); font-size: clamp(3.7rem, 11vw, 7rem); font-weight: 600; letter-spacing: -.02em; line-height: .88; }
+  h1 span { color: #d28eb7; font-family: 'Pacifico', cursive; font-size: .82em; font-weight: 400; }
+  .hero-copy { max-width: 36ch; margin: 24px auto 0; color: var(--soft-ink); font-size: 1.08rem; line-height: 1.45; }
+  .cake-line { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 28px; color: #d28eb7; }
+  .cake-line i { width: 48px; height: 1px; background: rgba(210, 142, 183, .5); }
+
+  .link-list { display: grid; gap: 14px; }
+  .gift-link {
+    display: grid;
+    grid-template-columns: 58px 1fr auto;
+    align-items: center;
+    gap: 18px;
+    min-height: 112px;
+    padding: 18px 22px 18px 18px;
+    border: 1px solid rgba(255, 255, 255, .8);
+    border-radius: 22px;
+    color: var(--ink);
+    background: rgba(255, 255, 255, .64);
+    box-shadow: 0 14px 30px rgba(91, 74, 106, .1);
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+    animation: linkIn .7s both var(--delay);
+    transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  }
+
+  .gift-link:hover, .gift-link:focus-visible { background: rgba(255, 255, 255, .9); box-shadow: 0 20px 38px rgba(91, 74, 106, .16); transform: translateY(-4px) rotate(-.4deg); }
+  .gift-icon { display: grid; width: 58px; height: 58px; place-items: center; border-radius: 18px; color: var(--ink); background: var(--link-color); font-size: 1.7rem; }
+  .gift-copy { display: grid; gap: 3px; }
+  .gift-label { color: var(--soft-ink); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+  .gift-copy strong { font-size: clamp(1.15rem, 3vw, 1.45rem); line-height: 1.1; }
+  .gift-copy small { color: var(--soft-ink); font-size: .92rem; line-height: 1.35; }
+  .gift-arrow { color: #b87eaa; font-size: 1.5rem; transition: transform 180ms ease; }
+  .gift-link:hover .gift-arrow, .gift-link:focus-visible .gift-arrow { transform: translate(3px, -3px); }
+  .links-footer { padding-top: 38px; color: var(--soft-ink); text-align: center; font-size: .86rem; }
+  .links-footer span { color: #e28caf; }
+
+  .confetti { position: absolute; z-index: 0; width: 9px; height: 25px; border-radius: 5px; opacity: .6; transform: rotate(28deg); }
+  .confetti-one { top: 18%; left: 8%; background: #f19bbd; }
+  .confetti-two { top: 38%; right: 8%; background: #9ccfe8; transform: rotate(-35deg); }
+  .confetti-three { bottom: 12%; left: 16%; background: #bea7e5; transform: rotate(58deg); }
+
+  @keyframes linkIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .gift-link { animation: none; } }
+  @media (max-width: 560px) {
+    .links-page { padding-inline: 16px; }
+    .links-hero { padding-top: 72px; }
+    .gift-link { grid-template-columns: 48px 1fr auto; gap: 12px; padding: 14px; }
+    .gift-icon { width: 48px; height: 48px; border-radius: 15px; font-size: 1.35rem; }
+    .gift-copy small { font-size: .82rem; }
+  }
+</style>
