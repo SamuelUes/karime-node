@@ -35,13 +35,27 @@ function rand(min: number, max: number) {
  */
 export default function Confetti({
   burstRef,
+  clearRef,
 }: {
   burstRef: React.MutableRefObject<((x: number, y: number, count?: number) => void) | null>
+  clearRef: React.MutableRefObject<(() => void) | null>
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<Particle[]>([])
   const rafRef = useRef<number | null>(null)
   const prefersReduced = useReducedMotion()
+
+  const clearParticles = useCallback(() => {
+    particlesRef.current = []
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current)
+      rafRef.current = null
+    }
+
+    const canvas = canvasRef.current
+    const ctx = canvas?.getContext("2d")
+    ctx?.clearRect(0, 0, window.innerWidth, window.innerHeight)
+  }, [])
 
   const spawnBurst = useCallback(
     (x: number, y: number, count = 80) => {
@@ -129,6 +143,7 @@ export default function Confetti({
     window.addEventListener("resize", resize, { passive: true })
 
     burstRef.current = spawnBurst
+    clearRef.current = clearParticles
 
     // Confeti de bienvenida sutil
     const welcomeTimer = setTimeout(() => {
@@ -139,9 +154,11 @@ export default function Confetti({
     return () => {
       window.removeEventListener("resize", resize)
       clearTimeout(welcomeTimer)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      clearParticles()
+      burstRef.current = null
+      clearRef.current = null
     }
-  }, [spawnBurst, burstRef])
+  }, [spawnBurst, burstRef, clearRef, clearParticles])
 
   return (
     <canvas

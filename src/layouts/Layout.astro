@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import GlowCursor from '../components/GlowCursor.tsx'
 
 interface Props {
   title?: string
@@ -22,6 +23,27 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <GlowCursor
+      client:load
+      color="#dddddd"
+      secondaryColor="#ffffff"
+      trailLength={40}
+      trailWidth={8}
+      trailTaper={0.8}
+      followSpeed={0.46}
+      glowIntensity={1.9}
+      glowSpread={1.2}
+      hotspot={0.65}
+      brightness={5.25}
+      opacity={1}
+      pulseSpeed={1.1}
+      noiseStrength={0.035}
+      idleFade
+      idleTimeout={700}
+      fadeDuration={900}
+      blendMode="screen"
+    >
+      <slot />
+    </GlowCursor>
   </body>
 </html>

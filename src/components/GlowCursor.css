@@ -1,0 +1,29 @@
+.glow-cursor {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+}
+
+.glow-cursor__canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  user-select: none;
+}
+
+.glow-cursor__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100%;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .glow-cursor__canvas {
+    display: none;
+  }
+}

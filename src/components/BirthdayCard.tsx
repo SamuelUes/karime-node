@@ -9,15 +9,58 @@ const EASE = [0.22, 1, 0.36, 1] as const
 export default function BirthdayCard() {
   const prefersReduced = useReducedMotion()
   const burstRef = useRef<((x: number, y: number, count?: number) => void) | null>(null)
+  const clearConfettiRef = useRef<(() => void) | null>(null)
+  const fireworksAudioRef = useRef<HTMLAudioElement | null>(null)
+  const fireworksStopTimeoutRef = useRef<number | null>(null)
+  const fireworksVisualIntervalRef = useRef<number | null>(null)
+  const fireworksVisualStopTimeoutRef = useRef<number | null>(null)
   const [showWish, setShowWish] = useState(false)
 
   const handleCelebrate = () => {
+    const fireworksAudio =
+      fireworksAudioRef.current ??
+      new Audio("/resources/Sonido de Fuegos Artificiales (pirotecnia).mp3")
+
+    fireworksAudioRef.current = fireworksAudio
+    fireworksAudio.currentTime = 0
+
+    if (fireworksStopTimeoutRef.current !== null) {
+      window.clearTimeout(fireworksStopTimeoutRef.current)
+    }
+
+    void fireworksAudio.play().catch(() => undefined)
+    fireworksStopTimeoutRef.current = window.setTimeout(() => {
+      fireworksAudio.pause()
+      fireworksAudio.currentTime = 0
+      fireworksStopTimeoutRef.current = null
+    }, 30_000)
+
+    if (fireworksVisualIntervalRef.current !== null) {
+      window.clearInterval(fireworksVisualIntervalRef.current)
+    }
+    if (fireworksVisualStopTimeoutRef.current !== null) {
+      window.clearTimeout(fireworksVisualStopTimeoutRef.current)
+    }
+    clearConfettiRef.current?.()
+
     if (prefersReduced) return
-    const cx = window.innerWidth / 2
-    const cy = window.innerHeight / 2
-    burstRef.current?.(cx, cy, 120)
-    setTimeout(() => burstRef.current?.(cx - 120, cy + 40, 60), 180)
-    setTimeout(() => burstRef.current?.(cx + 120, cy + 40, 60), 360)
+
+    const launchFirework = () => {
+      const x = window.innerWidth * (0.18 + Math.random() * 0.64)
+      const y = window.innerHeight * (0.16 + Math.random() * 0.32)
+      burstRef.current?.(x, y, 120)
+    }
+
+    launchFirework()
+    fireworksVisualIntervalRef.current = window.setInterval(launchFirework, 900)
+    fireworksVisualStopTimeoutRef.current = window.setTimeout(() => {
+      if (fireworksVisualIntervalRef.current !== null) {
+        window.clearInterval(fireworksVisualIntervalRef.current)
+        fireworksVisualIntervalRef.current = null
+      }
+      clearConfettiRef.current?.()
+      fireworksVisualStopTimeoutRef.current = null
+    }, 15_000)
   }
 
   const handleWish = () => {
@@ -34,7 +77,7 @@ export default function BirthdayCard() {
 
   return (
     <>
-      <Confetti burstRef={burstRef} />
+      <Confetti burstRef={burstRef} clearRef={clearConfettiRef} />
 
       <motion.main
         className="relative z-2 w-full max-w-[560px] text-center"
@@ -93,8 +136,8 @@ export default function BirthdayCard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
         >
-          Que este nuevo año esté lleno de color, risas y momentos mágicos.
-          ¡Brindemos por ti y por todo lo bonito que viene! 🎂✨
+          Que este nuevo año esté lleno de memes, risas y momentos raros.
+          ¡Brindemos por vos y por todo lo bonito que viene! 🎂✨
         </motion.p>
 
         {/* Botones */}
@@ -128,7 +171,7 @@ export default function BirthdayCard() {
             }}
           >
             <StarIcon data-icon="inline-start" />
-            Pedir un deseo
+            Pide un deseo
           </Button>
         </motion.div>
 

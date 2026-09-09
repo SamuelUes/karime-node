@@ -187,7 +187,7 @@ function CenterContent({
           className="text-[clamp(0.9rem,1.4vw,1.1rem)] font-semibold tracking-[0.04em]"
           style={{ color: "var(--color-ink)" }}
         >
-          About us
+          Memories
         </span>
         <ArrowDownIcon style={{ color: "var(--color-ink)" }} />
       </div>
@@ -196,11 +196,11 @@ function CenterContent({
         className="font-display m-0 mb-7 font-normal leading-[1.15] text-gradient-pastel"
         style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
       >
-        A bunch
+        The sweetest
         <br />
-        of misfits with an
+        girl
         <br />
-        eye for beauty
+        of all time
       </h2>
 
       <p
@@ -210,9 +210,7 @@ function CenterContent({
           color: "var(--color-ink)",
         }}
       >
-        We're committed to shaping better futures putting people first — our
-        clients, our employees, and the users we serve. We pursue excellence.
-        We embrace growth. We create what doesn't exist. We're Riverside.
+        A little something just to express my love for being the best little sister in the whole world.
       </p>
     </motion.div>
   )
