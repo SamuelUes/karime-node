@@ -19,7 +19,7 @@ export default function BirthdayCard() {
   const handleCelebrate = () => {
     const fireworksAudio =
       fireworksAudioRef.current ??
-      new Audio("/resources/Sonido de Fuegos Artificiales (pirotecnia).mp3")
+      new Audio("/resources/more/Sonido de Fuegos Artificiales (pirotecnia).mp3")
 
     fireworksAudioRef.current = fireworksAudio
     fireworksAudio.currentTime = 0

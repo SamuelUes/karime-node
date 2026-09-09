@@ -22,37 +22,37 @@ interface ImageConfig {
 
 const IMAGES: ImageConfig[] = [
   {
-    src: "/resources/Kari15.jpeg",
+    src: "/resources/Kari/Kari15.jpeg",
     alt: "Recuerdo 1",
     speed: 0.18,
     className: "about__img--1",
   },
   {
-    src: "/resources/Kari14.jpeg",
+    src: "/resources/Kari/Kari14.jpeg",
     alt: "Recuerdo 2",
     speed: 0.12,
     className: "about__img--2",
   },
   {
-    src: "/resources/Kari2.jpeg",
+    src: "/resources/Kari/Kari2.jpeg",
     alt: "Recuerdo 3",
     speed: 0.08,
     className: "about__img--3",
   },
   {
-    src: "/resources/Kari9.jpeg",
+    src: "/resources/Kari/Kari9.jpeg",
     alt: "Recuerdo 4",
     speed: 0.22,
     className: "about__img--4",
   },
   {
-    src: "/resources/Kari11.jpeg",
+    src: "/resources/Kari/Kari11.jpeg",
     alt: "Recuerdo 5",
     speed: 0.14,
     className: "about__img--5",
   },
   {
-    src: "/resources/Kari1.jpeg",
+    src: "/resources/Kari/Kari1.jpeg",
     alt: "Recuerdo 6",
     speed: 0.28,
     className: "about__img--6",

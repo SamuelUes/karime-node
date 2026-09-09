@@ -3,11 +3,11 @@ import { useEffect, useRef } from "react"
 interface DialogueLine {
   speaker: string
   text: string
+  image?: string
 }
 
 interface Phase {
   title: string
-  image: string
   dialogue: DialogueLine[]
 }
 
@@ -21,66 +21,61 @@ const SPEAKER_COLORS: Record<string, string> = {
 const PHASES: Phase[] = [
   {
     title: "",
-    image: "/resources/foca-fase-3.jpg",
     dialogue: [
-      { speaker: "KARIME", text: "Okay, ya estoy en esta extraña página, ahora qué??" },
-      { speaker: "NARRADOR", text: "Y aquí se encuentra nuestra estimada Karime, en su hábitat natural (internet)" },
-      { speaker: "KARIME", text: "Qué es esto? Un juego de foca? pero dónde está la foca?" },
+      { speaker: "KARIME", text: "Okay, ya estoy en esta extraña página, ahora qué??", image: "/resources/pixel/pixel-neutral.png" },
+      { speaker: "NARRADOR", text: "Y aquí se encuentra nuestra estimada Karime, en su hábitat natural (internet)", image: "" },
+      { speaker: "KARIME", text: "Qué es esto? Un juego de foca? pero dónde está la foca?", image: "/resources/pixel/pixel-neutral.png" },
     ],
   },
   {
     title: "",
-    image: "/resources/cosa-shock.jpg",
     dialogue: [
-      { speaker: "KARIME", text: "y pq soy una bola sin forma??" },
+      { speaker: "KARIME", text: "y pq m veo así??", image: "/resources/pixel/pixel-neutral.png" },
       { speaker: "NARRADOR", text: "ehhh, el developer no sabe dibujar, conformate" },
-      { speaker: "KARIME", text: "ah ok, tiene sentido, yo soy la q sabe dibujar" },
-      { speaker: "KARIME", text: "pero donde está mi foca?? espero que no sea otra bolita sin forma!!!" },
+      { speaker: "KARIME", text: "ah ok, tiene sentido, yo soy la q sabe dibujar", image: "/resources/pixel/pixel-glad.svg" }, 
+      { speaker: "KARIME", text: "pero donde está mi foca??" },
       { speaker: "NARRADOR", text: "sobre eso..." },
       { speaker: "NARRADOR", text: "no había mucho budget, así que..." },
-      { speaker: "KARIME", text: "si... me lo supuse" },
+      { speaker: "KARIME", text: "si... me lo supuse", image: "/resources/pixel/pixel-neutral.png" },
       { speaker: "NARRADOR", text: "bromita... aquí está tu foquita" },
     ],
   },
   {
     title: "",
-    image: "/resources/seal-normal.png",
     dialogue: [
-      { speaker: "ZAYNE(don't ask)", text: "HOLAAAAAA" },
-      { speaker: "KARIME", text: "OMG ES UNA FOQUITA REALLL, pero poq te llamas Zayne???" },
+      { speaker: "ZAYNE(don't ask)", text: "HOLAAAAAA", image: "/resources/seal/seal-greeting.png" },
+      { speaker: "KARIME", text: "OMG ES UNA FOQUITA REALLL", image: "/resources/pixel/pixel-laugh.svg" },
+      { speaker: "KARIME", text: "pero poq te llamas zayne?????'", image: "/resources/pixel/pixel-shock.svg" },
       { speaker: "NARRADOR", text: "no lees el nombre? dice NO PREGUNTES" },
-      { speaker: "KARIME", text: "a" },
+      { speaker: "KARIME", text: "a", image: "/resources/pixel/pixel-neutral.png" },
     ],
   },
   {
     title: "",
-    image: "/resources/seal-greeting.png",
     dialogue: [
-      { speaker: "ZAYNE(don't ask)", text: "Hola persona bonita obsesionada con las focas y las cosas de mar" },
-      { speaker: "ZAYNE(don't ask)", text: "el tema de mi nombre no importa ahora!!" },
-      { speaker: "NARRADOR", text: "lo que dijo" },
+      { speaker: "ZAYNE(don't ask)", text: "Hola persona bonita obsesionada con las focas y las cosas de mar", image: "/resources/seal/seal-normal.png" },
+      { speaker: "ZAYNE(don't ask)", text: "el tema de mi nombre no importa ahora!!", image: "/resources/seal/seal-laughing.png" },
+      { speaker: "NARRADOR", text: "lo que dijo", image: "/resources/seal/seal-normal.png" },
       
     ],
   },
   {
     title: "",
-    image: "/resources/seal-smiling.png",
     dialogue: [
-      { speaker: "ZAYNE(don't ask)", text: "he sido creado el dia de hoy" },
+      { speaker: "ZAYNE(don't ask)", text: "he sido creado el dia de hoy", image: "/resources/seal/seal-normal.png" },
       { speaker: "NARRADOR", text: "(de hecho tomó dos días hacerte)" },
-      { speaker: "ZAYNE(don't ask)", text: "*Lo ignora*" },
+      { speaker: "ZAYNE(don't ask)", text: "*Lo ignora*", image: "/resources/seal/seal-smiling.png" },
       { speaker: "ZAYNE(don't ask)", text: "Para traerte un mensaje muy, muy importante..." },
-      { speaker: "KARIME", text: "por fa decime q la blanca me va a regalar una foca real" },
+      { speaker: "KARIME", text: "por fa decime q la blanca me va a regalar una foca real", image: "/resources/pixel/pixel-shock.svg" },
       
     ],
   },
   {
     title: "",
-    image: "/resources/seal-laughing.png",
     dialogue: [
-      { speaker: "ZAYNE(don't ask)", text: "JAJAJA no tontita..." },
+      { speaker: "ZAYNE(don't ask)", text: "JAJAJA no tontita...", image: "/resources/seal/seal-laughing.png"},
       { speaker: "NARRADOR", text: "aunque si tuviera el dinero para..." },
-      { speaker: "ZAYNE(don't ask)", text: "*clears throat*" },
+      { speaker: "ZAYNE(don't ask)", text: "*clears throat*", image: "/resources/seal/seal-normal.png" },
       { speaker: "ZAYNE(don't ask)", text: "anyways..." },
       { speaker: "NARRADOR", text: "pq de la nada habLAS INGLES" },
       
@@ -88,27 +83,24 @@ const PHASES: Phase[] = [
   },
   {
     title: "",
-    image: "/resources/seal-normal.png",
     dialogue: [
-      { speaker: "ZAYNE(don't ask)", text: "como seguía diciendo..." },
+      { speaker: "ZAYNE(don't ask)", text: "como seguía diciendo...", image: "/resources/seal/seal-normal.png" },
       { speaker: "ZAYNE(don't ask)", text: "mi creadora me creó y programó..." },
       
     ],
   },
    {
     title: "",
-    image: "/resources/seal-bd.png",
     dialogue: [
-      { speaker: "ZAYNE(don't ask)", text: "PARA DESEARTE UN MUY FELIZ CUMPLEAÑOS" },
+      { speaker: "ZAYNE(don't ask)", text: "PARA DESEARTE UN MUY FELIZ CUMPLEAÑOS",  image: "/resources/seal/seal-bd.png" },
       { speaker: "ZAYNE(don't ask)", text: "Esperamos que este nuevo año te traiga muchas alegrías y oportunidades, y que puedas alcanzar todas tus metas." },
       { speaker: "ZAYNE(don't ask)", text: "FELIZ CUMPLEAÑOS FRESIKARIIIIII!!!!" },
-      { speaker: "KARIME", text: "OMG ESTOY EMOCIONADA, CONMOVIDA, FASCINADA, SORPRENDIDA, DESESPERADA, CONFUNDIDA, INCREÍBLE, ASOMBRADA, AGRADABLE, ENCANTADORA, FELIZ"},
+      { speaker: "KARIME", text: "OMG ESTOY EMOCIONADA, CONMOVIDA, FASCINADA, SORPRENDIDA, DESESPERADA, CONFUNDIDA, INCREÍBLE, ASOMBRADA, AGRADABLE, ENCANTADORA, FELIZ", image: "/resources/pixel/pixel-laugh.svg" },
       { speaker: "NARRADOR", text: "si ok ya entendimos..." },
     ],
   },
     {
     title: "",
-    image: "/resources/Tai.png",
     dialogue: [
       { speaker: "DEVELOPER", text: "bueno, ya déjense de tanto drama que ya vino la mera GOAT (mentira)"},
       { speaker: "DEVELOPER", text: "en fin, espero que te haya gustado este pequeño jueguito modesto que te hice" },
@@ -120,7 +112,6 @@ const PHASES: Phase[] = [
   },
   {
     title: "",
-    image: "/resources/Tai-angwy.png",
     dialogue: [
       { speaker: "DEVELOPER", text: "cierra el pico"},
       { speaker: "NARRADOR", text: "pero si vos pusiste este diálogo..."},
@@ -129,7 +120,6 @@ const PHASES: Phase[] = [
   },
   {
     title: "",
-    image: "/resources/seal-laughing.png",
     dialogue: [
       { speaker: "Zayne(don't ask)", text: "como seaaaaaa, no se salgan del tema"},
       { speaker: "NARRADOR", text: "feliz cumpleaños fresikari, has llegado al final del juego byeeeee"},
@@ -144,7 +134,7 @@ export default function SealVisualNovel() {
   useEffect(() => {
     let game: { destroy: (removeCanvas: boolean, noReturn?: boolean) => void } | undefined
     let cancelled = false
-    const music = new Audio("/resources/AA-OST-MayaFey.mp3")
+    const music = new Audio("/resources/more/AA-OST-MayaFey.mp3")
     music.loop = true
     music.volume = 0.35
     audioRef.current = music
@@ -176,7 +166,11 @@ export default function SealVisualNovel() {
 
         preload() {
           PHASES.forEach((phase, index) => {
-            this.load.image(`phase-${index}`, phase.image)
+            phase.dialogue.forEach((line, lineIndex) => {
+              if (line.image) {
+                this.load.image(`dialogue-${index}-${lineIndex}`, line.image)
+              }
+            })
           })
         }
 
@@ -215,22 +209,12 @@ export default function SealVisualNovel() {
           const phase = PHASES[this.phaseIndex]
 
           this.children.removeAll(true)
+          this.background = undefined
           this.placeholder = undefined
 
           this.add.rectangle(width / 2, height / 2, width, height, 0x123e59)
           this.add.circle(width * 0.12, height * 0.2, 70, 0x2b6d87, 0.32)
           this.add.circle(width * 0.88, height * 0.28, 110, 0x2b6d87, 0.26)
-
-          if (this.textures.exists(`phase-${this.phaseIndex}`)) {
-            this.background = this.add.image(width / 2, height * 0.39, `phase-${this.phaseIndex}`)
-            const scale = Math.min(
-              (width * 0.42) / this.background.width,
-              (height * 0.58) / this.background.height,
-            )
-            this.background.setScale(scale).setAlpha(0.96)
-          } else {
-            this.createPlaceholder(width, height)
-          }
 
           this.add.rectangle(width / 2, height * 0.84, width * 0.96, height * 0.28, 0x35657a, 0.94)
             .setStrokeStyle(2, 0x8ed9da, 0.7)
@@ -248,6 +232,8 @@ export default function SealVisualNovel() {
           const width = this.scale.width
           const height = this.scale.height
           const line = PHASES[this.phaseIndex].dialogue[this.lineIndex]
+
+          this.renderVisual(this.getDialogueImageKey(line))
 
           this.speakerText?.destroy()
           this.dialogueText?.destroy()
@@ -272,6 +258,47 @@ export default function SealVisualNovel() {
             fontSize: `${Math.max(13, width * 0.017)}px`,
             fontStyle: "bold",
           })
+        }
+
+        private getDialogueImageKey(line: DialogueLine) {
+          if (line.image) return `dialogue-${this.phaseIndex}-${this.lineIndex}`
+
+          for (let index = this.lineIndex - 1; index >= 0; index -= 1) {
+            if (PHASES[this.phaseIndex].dialogue[index].image) {
+              return `dialogue-${this.phaseIndex}-${index}`
+            }
+          }
+
+          return ""
+        }
+
+        private renderVisual(imageKey: string) {
+          const width = this.scale.width
+          const height = this.scale.height
+
+          if (!this.textures.exists(imageKey)) {
+            this.background?.destroy()
+            this.background = undefined
+            if (!this.placeholder) this.createPlaceholder(width, height)
+            return
+          }
+
+          this.placeholder?.destroy()
+          this.placeholder = undefined
+          if (!this.background) {
+            this.background = this.add.image(width / 2, height * 0.39, imageKey)
+          } else {
+            this.background.setTexture(imageKey)
+          }
+
+          const scale = Math.min(
+            (width * 0.42) / this.background.width,
+            (height * 0.58) / this.background.height,
+          )
+          this.background
+            .setPosition(width / 2, height * 0.39)
+            .setScale(scale)
+            .setAlpha(0.96)
         }
 
         private getContinueLabel() {

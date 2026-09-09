@@ -11,31 +11,31 @@ const SERVICES = [
   {
     name: "Beautiful",
     phrase: "But I promise that I love you\nEven with that hair-do\nI'm sorry I made fun of it\nIt's not your fault it looks like shit",
-    img: "/resources/Kari16.jpeg",
+    img: "/resources/Kari/Kari16.jpeg",
   },
   {
     name: "Elegant",
     phrase: "I have never tolerated someone for so long\nI've never laughed so much\nI haven't written a sad song\nThere's no one else I'd rather fall asleep with\nAnd dream with\nYou're my best friend in the world",
-    img: "/resources/Kari17.jpeg",
+    img: "/resources/Kari/Kari17.jpeg",
   },
   {
     name: "Silly",
     phrase: "When we're ninety-eight and ninety-nine\nTumblin' down the stairs\nYou'll barely catch me in time\nWe'll argue about what to watch on TV\nFinally pick a movie, then we'll fall asleep",
-    img: "/resources/Kari18.jpeg",
+    img: "/resources/Kari/Kari18.jpeg",
   },
   {
     name: "Lovely",
     phrase: "We'll still be a little bit strange\nSome things never change",
-    img: "/resources/Kari19.jpeg",
+    img: "/resources/Kari/Kari19.jpeg",
   },
   {
     name: "a literal meme lol",
     phrase: "It's funny ‘cause you drive me half-insane\nA universe without you would be thoroughly mundane\nThere's no one else I'd rather fall in love with\nAnd that is\nMy best friend in the world",
-    img: "/resources/Kari20.jpeg",
+    img: "/resources/Kari/Kari20.jpeg",
   },
   {
     name: "You're my best friend in the world",
-    img: "/resources/Kari25.jpeg",
+    img: "/resources/Kari/Kari25.jpeg",
   },
 ]
 
