@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import Confetti from "./Confetti"
 
 const EASE = [0.22, 1, 0.36, 1] as const
+const YOUTUBE_PLAYLIST_URL =
+  "https://youtube.com/playlist?list=PLUNTCkX_FCbc&si=ncuiGyqvqJFJ1dsx"
 
 export default function BirthdayCard() {
   const prefersReduced = useReducedMotion()
@@ -18,6 +20,8 @@ export default function BirthdayCard() {
   const [showWish, setShowWish] = useState(false)
 
   const handleCelebrate = () => {
+    window.open(YOUTUBE_PLAYLIST_URL, "_blank", "noopener,noreferrer")
+
     const fireworksAudio =
       fireworksAudioRef.current ??
       new Audio("/resources/more/Sonido de Fuegos Artificiales (pirotecnia).mp3")
