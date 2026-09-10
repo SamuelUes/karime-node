@@ -102,10 +102,10 @@ const PHASES: Phase[] = [
     {
     title: "",
     dialogue: [
-      { speaker: "DEVELOPER", text: "bueno, ya déjense de tanto drama que ya vino la mera GOAT (mentira)"},
-      { speaker: "DEVELOPER", text: "en fin, espero que te haya gustado este pequeño jueguito modesto que te hice" },
-      { speaker: "DEVELOPER", text: "no es igual de increíble que el que me hiciste vos, pero es trabajo honesto"},
-      { speaker: "DEVELOPER", text: "Feliz cumpleaños Karime, te amo mucho" },
+      { speaker: "DEVELOPER", text: "bueno, ya déjense de tanto drama que ya vino la mera GOAT (mentira)", image: "/resources/more/Tai.png" },
+      { speaker: "DEVELOPER", text: "en fin, espero que te haya gustado este pequeño jueguito modesto que te hice", image: "/resources/more/Tai.png"},
+      { speaker: "DEVELOPER", text: "no es igual de increíble que el que me hiciste vos, pero es trabajo honesto", image: "/resources/more/Tai.png" },
+      { speaker: "DEVELOPER", text: "Feliz cumpleaños Karime, te amo mucho", image: "/resources/more/Tai.png" },
       { speaker: "NARRADOR", text: "cursi...."},
       
     ],
@@ -113,15 +113,15 @@ const PHASES: Phase[] = [
   {
     title: "",
     dialogue: [
-      { speaker: "DEVELOPER", text: "cierra el pico"},
-      { speaker: "NARRADOR", text: "pero si vos pusiste este diálogo..."},
-      { speaker: "DEVELOPER", text: "cierto..."},
+      { speaker: "DEVELOPER", text: "cierra el pico", image: "/resources/more/Tai-angwy.png" },
+      { speaker: "NARRADOR", text: "pero si vos pusiste este diálogo...", image: "/resources/more/Tai-angwy.png" },
+      { speaker: "DEVELOPER", text: "cierto...", image: "/resources/more/Tai-angwy.png" },
     ],
   },
   {
     title: "",
     dialogue: [
-      { speaker: "Zayne(don't ask)", text: "como seaaaaaa, no se salgan del tema"},
+      { speaker: "Zayne(don't ask)", text: "como seaaaaaa, no se salgan del tema", image: "/resources/seal/seal-smiling.png" },
       { speaker: "NARRADOR", text: "feliz cumpleaños fresikari, has llegado al final del juego byeeeee"},
     ],
   },
@@ -153,6 +153,8 @@ export default function SealVisualNovel() {
       class VisualNovelScene extends Phaser.Scene {
         private phaseIndex = 0
         private lineIndex = 0
+        private started = false
+        private finished = false
         private background?: Phaser.GameObjects.Image
         private dialogueText?: Phaser.GameObjects.Text
         private speakerText?: Phaser.GameObjects.Text
@@ -176,7 +178,7 @@ export default function SealVisualNovel() {
 
         create() {
           this.cameras.main.setBackgroundColor("#123e59")
-          this.renderPhase()
+          this.renderStart()
 
           this.input.on("pointerdown", () => this.advance())
           this.input.keyboard?.on("keydown-SPACE", () => this.advance())
@@ -184,6 +186,8 @@ export default function SealVisualNovel() {
         }
 
         private advance() {
+          if (!this.started || this.finished) return
+
           const currentPhase = PHASES[this.phaseIndex]
           if (this.lineIndex < currentPhase.dialogue.length - 1) {
             this.lineIndex += 1
@@ -198,9 +202,75 @@ export default function SealVisualNovel() {
             return
           }
 
-          this.phaseIndex = 0
-          this.lineIndex = 0
-          this.renderPhase()
+          this.finished = true
+          this.renderEnd()
+        }
+
+        private renderStart() {
+          const width = this.scale.width
+          const height = this.scale.height
+
+          this.children.removeAll(true)
+          this.add.rectangle(width / 2, height / 2, width, height, 0x123e59)
+          this.add.circle(width * 0.12, height * 0.2, 70, 0x2b6d87, 0.32)
+          this.add.circle(width * 0.88, height * 0.28, 110, 0x2b6d87, 0.26)
+          this.add.circle(width * 0.5, height * 0.42, width * 0.2, 0x2b6d87, 0.16)
+          this.add.text(width / 2, height * 0.25, "Karime's little adventure", {
+            color: "#f3fbf8",
+            fontFamily: "Pacifico, cursive",
+            fontSize: `${Math.max(28, width * 0.052)}px`,
+          }).setOrigin(0.5)
+          this.add.text(width / 2, height * 0.4, "Un pequeño regalo para una persona muy especial", {
+            color: "#9de5df",
+            fontFamily: "Fredoka Variable, sans-serif",
+            fontSize: `${Math.max(16, width * 0.021)}px`,
+          }).setOrigin(0.5)
+
+          const startButton = this.add.rectangle(width / 2, height * 0.63, width * 0.3, 58, 0x35657a)
+            .setStrokeStyle(2, 0x8ed9da, 0.8)
+            .setInteractive({ useHandCursor: true })
+          this.add.text(width / 2, height * 0.63, "INICIAR JUEGO", {
+            color: "#9de5df",
+            fontFamily: "Geist Variable, sans-serif",
+            fontSize: `${Math.max(14, width * 0.018)}px`,
+            fontStyle: "bold",
+          }).setOrigin(0.5)
+          startButton.on("pointerdown", () => {
+            this.started = true
+            this.renderPhase()
+          })
+        }
+
+        private renderEnd() {
+          const width = this.scale.width
+          const height = this.scale.height
+
+          this.children.removeAll(true)
+          this.add.rectangle(width / 2, height / 2, width, height, 0x123e59)
+          this.add.circle(width * 0.12, height * 0.2, 70, 0x2b6d87, 0.32)
+          this.add.circle(width * 0.88, height * 0.28, 110, 0x2b6d87, 0.26)
+          this.add.text(width / 2, height / 2, "FIN", {
+            color: "#f3fbf8",
+            fontFamily: "Geist Variable, sans-serif",
+            fontSize: `${Math.max(42, width * 0.08)}px`,
+            fontStyle: "bold",
+          }).setOrigin(0.5)
+
+          const restartButton = this.add.rectangle(width / 2, height * 0.66, width * 0.28, 54, 0x35657a)
+            .setStrokeStyle(2, 0x8ed9da, 0.7)
+            .setInteractive({ useHandCursor: true })
+          this.add.text(width / 2, height * 0.66, "REINICIAR", {
+            color: "#9de5df",
+            fontFamily: "Geist Variable, sans-serif",
+            fontSize: `${Math.max(14, width * 0.018)}px`,
+            fontStyle: "bold",
+          }).setOrigin(0.5)
+          restartButton.on("pointerdown", () => {
+            this.finished = false
+            this.phaseIndex = 0
+            this.lineIndex = 0
+            this.renderPhase()
+          })
         }
 
         private renderPhase() {

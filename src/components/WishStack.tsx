@@ -61,9 +61,9 @@ const CARDS: WishCard[] = [
     title: "Un Nuevo Comienzo",
     subtitle: "El mejor es seguir creciendo",
     href: "#5",
-    img: "https://picsum.photos/seed/bday-green/900/1100",
+    img: "/resources/more/AA.jpg",
     alt: "Nuevo comienzo",
-    bg: "#BFE4F2",
+    bg: "#f5c3e2",
   },
 ]
 
