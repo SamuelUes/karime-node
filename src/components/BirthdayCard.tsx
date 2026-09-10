@@ -1,4 +1,5 @@
 import { useRef, useState } from "react"
+import { navigate } from "astro:transitions/client"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { RocketIcon, StarIcon, MagicWandIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button"
@@ -33,7 +34,7 @@ export default function BirthdayCard() {
       fireworksAudio.pause()
       fireworksAudio.currentTime = 0
       fireworksStopTimeoutRef.current = null
-    }, 30_000)
+    }, 3_000)
 
     if (fireworksVisualIntervalRef.current !== null) {
       window.clearInterval(fireworksVisualIntervalRef.current)
@@ -64,8 +65,7 @@ export default function BirthdayCard() {
   }
 
   const handleWish = () => {
-    window.location.href = "/deseo"
-    setShowWish((v) => !v)
+    void navigate("/deseo")
     if (!prefersReduced) {
       const cx = window.innerWidth / 2
       const cy = window.innerHeight / 2
@@ -124,7 +124,15 @@ export default function BirthdayCard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45, ease: EASE }}
           >
-            Cumpleaños!
+            Cumpleaños
+          </motion.span>
+          <motion.span
+            className="text-gradient-pastel block"
+            initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
+          >
+            Fresikari!
           </motion.span>
         </h1>
 
@@ -134,10 +142,9 @@ export default function BirthdayCard() {
           style={{ color: "var(--color-ink-soft)" }}
           initial={prefersReduced ? undefined : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
+          transition={{ duration: 0.7, delay: 0.75, ease: EASE }}
         >
-          Que este nuevo año esté lleno de memes, risas y momentos raros.
-          ¡Brindemos por vos y por todo lo bonito que viene! 🎂✨
+          Te amo mucho. Sos la mejor hermana del mundo mundial. Esto es sólo algo pequeño que jamás será suficiente para expresar lo mucho que te amo, pero aún así espero que lo disfrutes. 🎂✨
         </motion.p>
 
         {/* Botones */}

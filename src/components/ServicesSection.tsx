@@ -145,7 +145,13 @@ export default function ServicesSection() {
                     transition: prefersReduced ? "none" : undefined,
                   }}
                 >
-                  <div className="group relative h-full w-full overflow-hidden rounded-2xl">
+                  <div
+                    className="group relative h-full w-full overflow-hidden rounded-2xl"
+                    style={{
+                      border: "1px solid rgba(255, 255, 255, 0.75)",
+                      boxShadow: "0 24px 60px rgba(91, 74, 106, 0.22)",
+                    }}
+                  >
                     <img
                       src={svc.img}
                       alt={svc.name}
@@ -171,9 +177,19 @@ export default function ServicesSection() {
                 className="text-right"
                 style={{
                   opacity: activeIndex === i ? 1 : 0.325,
+                  color:
+                    activeIndex === i
+                      ? "var(--color-purple)"
+                      : "var(--color-ink)",
+                  borderRight:
+                    activeIndex === i
+                      ? "3px solid var(--color-pink)"
+                      : "3px solid transparent",
+                  paddingRight: "clamp(16px, 2vw, 28px)",
+                  transform: activeIndex === i ? "translateX(-8px)" : "none",
                   transition: prefersReduced
                     ? "none"
-                    : "opacity 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    : "opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), color 400ms ease, transform 400ms ease, border-color 400ms ease",
                 }}
               >
                 <h1
@@ -182,7 +198,7 @@ export default function ServicesSection() {
                 >
                   {svc.name}
                 </h1>
-                <p className="m-0 mt-4 whitespace-pre-line text-[clamp(0.9rem,1.5vw,1.15rem)] font-normal leading-relaxed text-[var(--color-ink-soft)]">
+                <p className="m-0 mt-4 ml-auto max-w-[34ch] whitespace-pre-line text-[clamp(0.85rem,1.35vw,1.05rem)] font-normal leading-[1.55] text-[var(--color-ink-soft)]">
                   {svc.phrase}
                 </p>
               </motion.div>

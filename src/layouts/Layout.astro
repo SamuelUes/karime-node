@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import GlowCursor from '../components/GlowCursor.tsx'
+import { ClientRouter } from 'astro:transitions'
 
 interface Props {
   title?: string
@@ -8,9 +9,11 @@ interface Props {
 }
 
 const {
-  title = '¡Feliz Cumpleaños!',
+  title = '¡Feliz Cumpleaños Fresikari!',
   description = 'Que este nuevo año esté lleno de color, risas y momentos mágicos.',
 } = Astro.props
+
+const isSilentPage = ['/caso', '/caso/', '/foca', '/foca/'].includes(Astro.url.pathname)
 ---
 
 <!doctype html>
@@ -22,8 +25,34 @@ const {
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
+    {!isSilentPage && (
+      <>
+        <audio
+          id="birthday-music"
+          src="/resources/more/Happy-Birthday.mp3"
+          loop
+          autoplay
+          aria-hidden="true"
+          transition:persist
+        ></audio>
+        <script>
+          const birthdayMusic = document.querySelector('#birthday-music')
+          if (birthdayMusic instanceof HTMLAudioElement) {
+            birthdayMusic.volume = 0.4
+            const playBirthdayMusic = () => {
+              void birthdayMusic.play().catch(() => undefined)
+            }
+
+            playBirthdayMusic()
+            window.addEventListener('pointerdown', playBirthdayMusic, { once: true })
+            window.addEventListener('keydown', playBirthdayMusic, { once: true })
+          }
+        </script>
+      </>
+    )}
     <GlowCursor
       client:load
       color="#CF8ABB"

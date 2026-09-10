@@ -59,8 +59,8 @@ import SealVisualNovel from '../components/SealVisualNovel.tsx'
   .seal-intro h2 { margin: 0; max-width: 720px; font-family: 'Sans Serif', cursive; font-size: clamp(2.6rem, 7vw, 5.6rem); font-weight: 400; line-height: 1; letter-spacing: 0; text-align: left; color: #f2fffb; }
   .seal-intro > p:last-child { margin: 18px 0 0; color: #b8e5e4; font-size: 1.05rem; }
   .seal-stage { width: min(1180px, 100%); margin: 0 auto; overflow: hidden; border: 8px solid rgba(158, 239, 230, .48); border-radius: 20px; background: #06283f; box-shadow: 0 26px 60px rgba(1, 17, 35, .48); }
-  .seal-game { width: 100%; aspect-ratio: 3 / 2; min-height: 420px; }
-  .seal-game canvas { display: block; width: 100% !important; height: 100% !important; }
+  :global(.seal-game) { width: 100%; aspect-ratio: 3 / 2; min-height: 420px; }
+  :global(.seal-game canvas) { display: block; width: 100% !important; height: 100% !important; }
   .seal-note { max-width: 1180px; margin: 18px auto 0; color: #8fc9cc; font-size: .9rem; }
   .seal-note strong { color: #ffbd82; }
 
@@ -68,6 +68,6 @@ import SealVisualNovel from '../components/SealVisualNovel.tsx'
     .seal-kicker { display: none; }
     .seal-intro { margin-top: 56px; }
     .seal-stage { border-width: 4px; border-radius: 14px; }
-    .seal-game { min-height: 290px; }
+    :global(.seal-game) { min-height: 290px; }
   }
 </style>

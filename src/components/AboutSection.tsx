@@ -206,7 +206,7 @@ function CenterContent({
           color: "var(--color-ink)",
         }}
       >
-        A little something just to express my love for being the best little sister in the whole world.
+        Thank you for being the best little sister I could ask for. You are the best thing that ever happened in my life.
       </p>
     </motion.div>
   )

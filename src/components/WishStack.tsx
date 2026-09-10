@@ -57,12 +57,12 @@ const CARDS: WishCard[] = [
     bg: "#BFCCF2",
   },
   {
-    tags: ["en proceso", "Final Feliz"],
-    title: "Un Nuevo Comienzo",
-    subtitle: "El mejor es seguir creciendo",
-    href: "#5",
+    tags: ["Game", "Mystery"],
+    title: "The stolen cake",
+    subtitle: "¿Quién se ha robado el pastel?",
+    href: "/caso",
     img: "/resources/more/AA.jpg",
-    alt: "Nuevo comienzo",
+    alt: "AA Case",
     bg: "#f5c3e2",
   },
 ]

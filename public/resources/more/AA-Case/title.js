@@ -1,0 +1,1 @@
+window.OBJECTION_TITLE = "Stolen cake";
