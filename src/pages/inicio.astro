@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro'
+import AnimatedBackground from '../components/AnimatedBackground.tsx'
+import SmoothScroll from '../components/SmoothScroll.tsx'
+import BirthdayCard from '../components/BirthdayCard.tsx'
+import AboutSection from '../components/AboutSection.tsx'
+import ServicesSection from '../components/ServicesSection.tsx'
+---
+
+<Layout title="Happy Birthday!">
+  <SmoothScroll client:load>
+    <div
+      style="
+        background: linear-gradient(135deg, var(--color-pink-soft), var(--color-blue-soft) 50%, var(--color-purple-soft));
+        background-attachment: fixed;
+      "
+    >
+      <AnimatedBackground client:load />
+
+      <main
+        class="min-h-[100dvh] flex flex-col items-center relative overflow-x-hidden font-body"
+        style="
+          padding: 24px;
+          padding-top: max(24px, calc(50vh - 280px));
+          color: var(--color-ink);
+        "
+      >
+        <BirthdayCard client:load />
+      </main>
+
+      <AboutSection client:visible />
+      <ServicesSection client:visible />
+    </div>
+  </SmoothScroll>
+</Layout>

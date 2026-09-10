@@ -399,6 +399,15 @@ export default function SealVisualNovel() {
         scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
         scene: VisualNovelScene,
       })
+    }).catch(() => {
+      if (cancelled || !gameRef.current) return
+
+      gameRef.current.textContent = "No se pudo cargar el juego. Recarga la página para intentarlo de nuevo."
+      gameRef.current.style.display = "grid"
+      gameRef.current.style.placeItems = "center"
+      gameRef.current.style.padding = "24px"
+      gameRef.current.style.color = "#9de5df"
+      gameRef.current.style.textAlign = "center"
     })
 
     return () => {
