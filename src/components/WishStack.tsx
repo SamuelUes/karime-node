@@ -36,7 +36,7 @@ const CARDS: WishCard[] = [
     href: "https://pin.it/5TKGlyzir",
     img: "/resources/more/flins.jpg",
     alt: "Sorpresa de cumpleaños",
-    bg: "#E2D0F2",
+    bg: "#745faf",
   },
   {
     tags: ["Sea", "Surprise"],
@@ -45,7 +45,7 @@ const CARDS: WishCard[] = [
     href: "/foca",
     img: "/resources/more/foquilla.jpg",
     alt: "Velas de cumpleaños",
-    bg: "#D6D0F2",
+    bg: "#9fe1ff",
   },
   {
     tags: ["Gifts", "Small trinkets"],
@@ -54,7 +54,7 @@ const CARDS: WishCard[] = [
     href: "/links",
     img: "/resources/more/Durin-Birthday.jpg",
     alt: "Brindis de cumpleaños",
-    bg: "#BFCCF2",
+    bg: "#c565dd",
   },
   {
     tags: ["Game", "Mystery"],
@@ -64,6 +64,15 @@ const CARDS: WishCard[] = [
     img: "/resources/more/AA.jpg",
     alt: "AA Case",
     bg: "#f5c3e2",
+  },
+  {
+    tags: ["Videos", "Memories"],
+    title: "Collection",
+    subtitle: "Feliz cumpleaños, de parte de toda tu familia <3",
+    href: "https://drive.google.com/drive/folders/1jYK0Npa-JROpKmASijr0Kga2MD5x4P7Z?usp=drive_link",
+    img: "/resources/more/deltarune.jpg",
+    alt: "AA Case",
+    bg: "#c5f39a",
   },
 ]
 
